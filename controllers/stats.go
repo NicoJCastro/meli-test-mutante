@@ -15,7 +15,12 @@ func GetStats(c *gin.Context) {
 	database.DB.Model(&database.DNARecord{}).Where("is_mutant = ?", true).Count(&countMutantDNA)
 	database.DB.Model(&database.DNARecord{}).Where("is_mutant = ?", false).Count(&countHumanDNA)
 
-	ratio := float64(countMutantDNA) / float64(countHumanDNA)
+	var ratio float64
+	if countHumanDNA == 0 {
+		ratio = 0
+	} else {
+		ratio = float64(countMutantDNA) / float64(countHumanDNA)
+	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"count_mutant_dna": countMutantDNA,
