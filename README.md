@@ -75,6 +75,3 @@ Contribuciones son bienvenidas:
 3. Crea una nueva rama
 4. Envía un pull request
 
-## Licencia
-
-Proyecto bajo Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
